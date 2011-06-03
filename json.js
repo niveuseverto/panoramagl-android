@@ -1,0 +1,1 @@
+{"back":"back.jpg","baseurl":"","camera":{"athmax":180,"athmin":-180,"atvmax":90,"atvmin":-90,"hlookat":0,"vlookat":0},"down":"down.jpg","front":"front.jpg","left":"left.jpg","preview":"preview.jpg","right":"right.jpg","up":"up.jpg","version":"0.1"}
