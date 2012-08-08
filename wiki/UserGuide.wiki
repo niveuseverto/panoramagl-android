@@ -75,14 +75,14 @@ Also, you can use JSON protocol to load panoramas.
 {{{
 this.load(new PLJSONLoader(this, "res://raw/json_spherical"));
 }}}
-*_Note:_* For this code, I have a file named "json_spherical.data" in "res/raw" folder in my application.
+*_Note:_* For this code, I have a file named *"json_spherical.data"* in *"res/raw"* folder in my application.
 
 or
 
 {{{
 this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
 }}}
-*_Note:_* For this code, I have a file named "json_spherical.data" in "/sdcard/files" folder in the Android device. 
+*_Note:_* For this code, I have a file named *"json_spherical.data"* in *"/sdcard/files"* folder in the Android device. 
 
 ===3.2. JSON Protocol===
 
