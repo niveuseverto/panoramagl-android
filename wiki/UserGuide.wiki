@@ -15,7 +15,7 @@ This guide is a simple guideline to use _*PanoramaGL 0.1*_ library, for more det
 a. Download _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip PanoramaGL_0.1.zip]*_ or download the source code from _*[http://code.google.com/p/panoramagl-android/source/checkout repository]*_<br/>
 b. If you download the zip file then decompress the file<br/>
 c. Import PanoramaGL project with Eclipse:
-	- Go to File->Import menu<br/>
+	- Go to *File->Import* menu<br/>
 	- Select *"Existing Projects into Workspace"* and click on *"Next"* button<br/>
 	- Click on *"Browse"* button and select PanoramaGL project folder<br/>
 	- Click on *"Finish"* button
