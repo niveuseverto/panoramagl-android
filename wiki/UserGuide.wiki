@@ -49,18 +49,18 @@ c. In the Activity class that you need to do a panoramic viewer, do the next cha
 	
 	- Inherit from PLView class
 {{{
-		public class YourActivity extends PLView
+public class YourActivity extends PLView
 }}}
 	- Inside of onCreate method load the panoramic image
 {{{
-		@Override
-    	public void onCreate(Bundle savedInstanceState)
-		{
-        	super.onCreate(savedInstanceState);
-			PLSphericalPanorama panorama = new PLSphericalPanorama();
-        	panorama.setImage(this.getCurrentGL(), PLImage.imageWithBitmap(PLUtils.getBitmap(this, R.raw.pano_sphere)));
-			this.setPanorama(panorama);
-		}
+@Override
+public void onCreate(Bundle savedInstanceState)
+{
+	super.onCreate(savedInstanceState);
+	PLSphericalPanorama panorama = new PLSphericalPanorama();
+	panorama.setImage(this.getCurrentGL(), PLImage.imageWithBitmap(PLUtils.getBitmap(this, R.raw.pano_sphere)));
+	this.setPanorama(panorama);
+}
 }}}
 
 *_Note:_* You can load panoramic images from other methods or events if you need it.
