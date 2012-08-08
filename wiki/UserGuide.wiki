@@ -40,58 +40,30 @@ e. Import jar file in your project:
 	- Click on *"OK"* button<br/>
 	- Accept the changes selecting the *"OK"* button on right bottom corner in properties window
 
-==2. How to use PanoramaGL in your app?==
+==2. How to use PanoramaGL in your application?==
 ----
-For next example, I have imported a spherical image named pano.jpg in the project.
 
-===2.1. With Interface Builder===
+a. Import the library as described on previous literal<br/>
+b. Import a spherical image (e.g pano_sphere.jpg) in "res/raw" folder<br/>
+c. In the Activity class that you need to do a panoramic viewer, do the next changes:
+	
+	- Inherit from PLView class
+{{{
+		public class YourActivity extends PLView
+}}}
+	- Inside of onCreate method load the panoramic image
+{{{
+		@Override
+    	public void onCreate(Bundle savedInstanceState)
+		{
+        	super.onCreate(savedInstanceState);
+			PLSphericalPanorama panorama = new PLSphericalPanorama();
+        	panorama.setImage(this.getCurrentGL(), PLImage.imageWithBitmap(PLUtils.getBitmap(this, R.raw.pano_sphere)));
+			this.setPanorama(panorama);
+		}
+}}}
 
-a. Create a ViewController<br/>
-b. Open ViewController with Interface Builder<br/>
-c. Select the View in *"Objects"* panel<br/>
-d. Show *"Identity Inspector"* (View->Utilities->Show Identity Inspector or Alt+Cmd+5)<br/>
-e. Change in *"Custom Class"* the Class from UIView to PLView<br/>
-f. Go to ViewController.h and import PLView.h
-{{{
-    #import "PLView.h"
-}}}
-g. Open ViewController.m, go to viewDidLoad method and put this code:
-{{{
-    PLView *plView = (PLView *)self.view;
-    PLSpherical2Panorama *panorama = [PLSpherical2Panorama panorama];
-    [panorama setImage:[PLImage imageWithPath:[[NSBundle mainBundle] pathForResource:@"pano" ofType:@"jpg"]]];
-    [plView setPanorama:panorama];
-}}}
-
-===2.2. Only with code===
-
-a. Import PLView.h in your class
-{{{
-    #import "PLView.h"
-}}}
-b. Create a variable of type PLView
-{{{
-    PLView *plView;
-}}}
-c. Create the view
-{{{
-    plView = [[PLView alloc] initWithFrame:CGRectMake(x,y,w,h)]);
-}}}
-d. Load panorama:
-{{{
-    PLView *plView = [[PLView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-    PLSpherical2Panorama *panorama = [PLSpherical2Panorama panorama];
-    [panorama setImage:[PLImage imageWithPath:[[NSBundle mainBundle] pathForResource:@"pano" ofType:@"jpg"]]];
-    [plView setPanorama:panorama];
-}}}
-e. Add panorama view to the window or view:
-{{{
-    [window addSubview:plView] or [your_view addSubview:plView]
-}}}
-f. Release the view
-{{{
-    [plView release];
-}}}
+*_Note:_* You can load panoramic images from other methods or events if you need it.
 
 ==3. Simple JSON Protocol==
 ----
