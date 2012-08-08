@@ -1,0 +1,46 @@
+{
+    "urlBase": "res://raw",
+    "type": "spherical2",
+    "sensorialRotation": false,
+    "scrolling":
+	{
+		"enabled": false
+	},
+	"inertia":
+	{
+		"enabled": false,
+		"interval": 3
+	},
+	"accelerometer":
+	{
+		"enabled": false,
+		"interval": 0.033,
+		"sensitivity": 10.0,
+		"leftRightEnabled": true,
+		"upDownEnabled": false
+	},
+    "images":
+    {
+        "preview": "pano_sphere_preview",
+        "image": "pano_sphere2"
+    },
+    "camera":
+    {
+        "vlookat": 0,
+        "hlookat": 0,
+        "atvmin": -90,
+        "atvmax": 90,
+        "athmin": -180,
+        "athmax": 180
+    },
+    "hotspots": [
+                 {
+                 "id": 2,
+                 "atv": 0,
+                 "ath": 0,
+                 "width": 0.08,
+                 "height": 0.08,
+                 "image": "hotspot"
+                 }
+                ]
+}
