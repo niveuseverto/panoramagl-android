@@ -1,0 +1,157 @@
+#summary PanoramaGL library simple guideline.
+#labels Featured,Phase-Deploy
+
+= Introduction =
+
+This guide is a simple guideline to use _*PanoramaGL 0.1*_ library, for more details please check _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
+
+= Details =
+
+==1. How to import PanoramaGL library?==
+----
+
+==1.1. From source code==
+
+a. Download _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip PanoramaGL_0.1.zip]*_ or download the source code from _*[http://code.google.com/p/panoramagl/source/checkout repository]*_<br/>
+b. If you download the zip file then decompress the file<br/>
+c. Import PanoramaGL project with Eclipse:<br/>
+	- Go to File->Import menu<br/>
+	- Select *"Existing Projects into Workspace"* and click on *"Next"* button<br/>
+	- Click on *"Browse"* button and select PanoramaGL project folder<br/>
+	- Click on *"Finish"* button<br/>
+d. Right click on your project and select *"Properties"* option<br/>
+e. Select on left panel *"Android"* option<br/>
+f. In right panel go to *"Library"* section and click on *"Add..."* button<br/>
+g. Select *"PanoramaGL"* library and click on *"OK"* button<br/>
+h. Accept the changes selecting the *"OK"* button on right bottom corner in properties window<br/>
+
+==1.2. From the compiled files==
+
+a. Download libglues.zip<br/>
+b. Decompress the zip file and copy *"libs"* folder in your project<br/>
+c. Download PanoramaGL_0.1.jar<br/>
+d. Copy jar file in *"libs"* folder in your project<br/>
+e. Import jar file in your project:<br/>
+	- Right click on your project and select *"Properties"* option<br/>
+	- Select on left panel *"Java Build Path"* option<br/>
+	- Select *"Libraries"* tabulator<br/>
+	- Click on *"Add JARs..."* button<br/>
+	- Select *"libs/PanoramaGL_0.1.jar"* file from your project<br/>
+	- Click on *"OK"* button<br/>
+	- Accept the changes selecting the *"OK"* button on right bottom corner in properties window<br/>
+
+==2. How to use PanoramaGL in your app?==
+----
+For next example, I have imported a spherical image named pano.jpg in the project.
+
+===2.1. With Interface Builder===
+
+a. Create a ViewController<br/>
+b. Open ViewController with Interface Builder<br/>
+c. Select the View in *"Objects"* panel<br/>
+d. Show *"Identity Inspector"* (View->Utilities->Show Identity Inspector or Alt+Cmd+5)<br/>
+e. Change in *"Custom Class"* the Class from UIView to PLView<br/>
+f. Go to ViewController.h and import PLView.h
+{{{
+    #import "PLView.h"
+}}}
+g. Open ViewController.m, go to viewDidLoad method and put this code:
+{{{
+    PLView *plView = (PLView *)self.view;
+    PLSpherical2Panorama *panorama = [PLSpherical2Panorama panorama];
+    [panorama setImage:[PLImage imageWithPath:[[NSBundle mainBundle] pathForResource:@"pano" ofType:@"jpg"]]];
+    [plView setPanorama:panorama];
+}}}
+
+===2.2. Only with code===
+
+a. Import PLView.h in your class
+{{{
+    #import "PLView.h"
+}}}
+b. Create a variable of type PLView
+{{{
+    PLView *plView;
+}}}
+c. Create the view
+{{{
+    plView = [[PLView alloc] initWithFrame:CGRectMake(x,y,w,h)]);
+}}}
+d. Load panorama:
+{{{
+    PLView *plView = [[PLView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+    PLSpherical2Panorama *panorama = [PLSpherical2Panorama panorama];
+    [panorama setImage:[PLImage imageWithPath:[[NSBundle mainBundle] pathForResource:@"pano" ofType:@"jpg"]]];
+    [plView setPanorama:panorama];
+}}}
+e. Add panorama view to the window or view:
+{{{
+    [window addSubview:plView] or [your_view addSubview:plView]
+}}}
+f. Release the view
+{{{
+    [plView release];
+}}}
+
+==3. Simple JSON Protocol==
+----
+Also, you can use JSON protocol to load panoramas. 
+
+*_Note:_* JSON protocol is limited for local files in this version.
+
+===3.1. Source code:===
+
+{{{
+    [plView load:[PLJSONLoader loaderWithPath:[[NSBundle mainBundle] pathForResource:@"json" ofType:@"data"]]];
+}}}
+*_Note:_* For this code, I have a file named json.data in my app. 
+
+===3.2. JSON Protocol:===
+
+{{{
+{
+    "urlBase": "res://",        //This is always res:// (this feature will be improve for support http protocol)
+    "type": "spherical",        //Panorama type: spherical, spherical2, cubic, cylindrical
+    "sensorialRotation": false, //Simulated gyroscope [true, false] (Optional)
+    "images":                   //Panoramic images section
+    {
+        "preview": "preview.jpg",  //Preview image (Optional, this option will be used with http protocol)
+        "image": "pano.jpg"     //Panoramic image name for spherical, spherical2 and cylindrical panoramas
+        "front": "front.jpg",   //Front image for cubic panorama (only use with cubic panorama)
+        "back": "back.jpg",     //Back image for cubic panorama (only use with cubic panorama)
+        "left": "left.jpg",     //Left image for cubic panorama (only use with cubic panorama)
+        "right": "right.jpg",   //Right image for cubic panorama (only use with cubic panorama)
+        "up": "up.jpg",         //Up image for cubic panorama (only use with cubic panorama)
+        "down": "down.jpg"      //Down image for cubic panorama (only use with cubic panorama)
+    },
+    "camera":                   //Camera settings section (Optional)
+    {
+        "vlookat": 0,           //Initial vertical position [-90, 90]
+        "hlookat": 0,           //Initial horizontal position [-180, 180]
+        "atvmin": -90,          //Min vertical position [-90, 90]
+        "atvmax": 90,           //Max vertical position [-90, 90]
+        "athmin": -180,         //Min horizontal position [-180, 180]
+        "athmax": 180           //Max horizontal position [-180, 180]
+    },
+    "hotspots": [               //Hotspots section (Optional, this section is an array of hotspots)
+                 {
+                 "id": 1,               //Hotspot identifier (long)
+                 "atv": 0,              //Vertical position [-90, 90]
+                 "ath": 0,              //Horizontal position [-180, 180]
+                 "width": 0.08,         //Width
+                 "height": 0.08,        //Height
+                 "image": "hotspot.png" //Image
+                 }
+                 ]
+}
+}}}
+
+===3.3. See:===
+
+_PLJSONLoader_ class and _PLView_ load method.<br/>
+_json.data_, _json_s2.data_ and _json_cubic.data_ on _*[http://panoramagl.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
+
+==4. More information==
+----
+For more details, please check _*[http://panoramagl.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.<br/>
+This example is compatible for iPhone, iPod Touch and iPad.
