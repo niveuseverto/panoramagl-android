@@ -140,7 +140,7 @@ this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
                  "height": 0.08,        //Height
                  "image": "hotspot.png" //Image name or URL
                  }
-                 ]
+                ]
 }
 }}}
 
