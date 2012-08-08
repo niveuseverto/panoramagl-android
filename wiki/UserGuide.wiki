@@ -146,8 +146,8 @@ this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
 
 ===3.3. See===
 
-* _PLJSONLoader_ class and _PLView_ load method.<br/>
-* The files _json_spherical.data_, _json_spherical2.data_, _json_cylindrical.data_ and _json_cubic.data_ in *"res/raw"* folder of _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
+** _PLJSONLoader_ class and _PLView_ load method.<br/>
+** The files _json_spherical.data_, _json_spherical2.data_, _json_cylindrical.data_ and _json_cubic.data_ in *"res/raw"* folder of _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
 
 ==4. More information==
 ----
