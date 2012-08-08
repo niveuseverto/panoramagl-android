@@ -44,7 +44,7 @@ e. Import jar file in your project:
 ----
 
 a. Import the library as described on previous literal<br/>
-b. Import a spherical image (e.g pano_sphere.jpg) in "res/raw" folder<br/>
+b. Import a spherical image _*(e.g pano_sphere.jpg)*_ in *"res/raw"* folder<br/>
 c. In the Activity class that you need to do a panoramic viewer, do the next changes:
 	
 	- Inherit from PLView class
@@ -71,14 +71,20 @@ Also, you can use JSON protocol to load panoramas.
 
 *_Note:_* JSON protocol is limited for local files in this version.
 
-===3.1. Source code:===
+===3.1. Source code===
+{{{
+this.load(new PLJSONLoader(this, "res://raw/json_spherical"));
+}}}
+*_Note:_* For this code, I have a file named "json_spherical.data" in "res/raw" folder in my application.
+
+or
 
 {{{
-    [plView load:[PLJSONLoader loaderWithPath:[[NSBundle mainBundle] pathForResource:@"json" ofType:@"data"]]];
+this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
 }}}
-*_Note:_* For this code, I have a file named json.data in my app. 
+*_Note:_* For this code, I have a file named "json_spherical.data" in "/sdcard/files" folder in the Android device. 
 
-===3.2. JSON Protocol:===
+===3.2. JSON Protocol===
 
 {{{
 {
