@@ -12,13 +12,13 @@ This guide is a simple guideline to use _*PanoramaGL 0.1*_ library, for more det
 
 ==1.1. From source code==
 
-a. Download _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip PanoramaGL_0.1.zip]*_ or download the source code from _*[http://code.google.com/p/panoramagl/source/checkout repository]*_<br/>
+a. Download _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip PanoramaGL_0.1.zip]*_ or download the source code from _*[http://code.google.com/p/panoramagl-android/source/checkout repository]*_<br/>
 b. If you download the zip file then decompress the file<br/>
-c. Import PanoramaGL project with Eclipse:<br/>
+c. Import PanoramaGL project with Eclipse:
 	- Go to File->Import menu<br/>
 	- Select *"Existing Projects into Workspace"* and click on *"Next"* button<br/>
 	- Click on *"Browse"* button and select PanoramaGL project folder<br/>
-	- Click on *"Finish"* button<br/>
+	- Click on *"Finish"* button
 d. Right click on your project and select *"Properties"* option<br/>
 e. Select on left panel *"Android"* option<br/>
 f. In right panel go to *"Library"* section and click on *"Add..."* button<br/>
@@ -27,18 +27,18 @@ h. Accept the changes selecting the *"OK"* button on right bottom corner in prop
 
 ==1.2. From the compiled files==
 
-a. Download libglues.zip<br/>
+a. Download _*[http://panoramagl-android.googlecode.com/files/libglues.zip libglues.zip]*_<br/>
 b. Decompress the zip file and copy *"libs"* folder in your project<br/>
-c. Download PanoramaGL_0.1.jar<br/>
+c. Download _*[http://panoramagl-android.googlecode.com/files/PanoramaGL_0.1.jar PanoramaGL_0.1.jar]*_<br/>
 d. Copy jar file in *"libs"* folder in your project<br/>
-e. Import jar file in your project:<br/>
+e. Import jar file in your project:
 	- Right click on your project and select *"Properties"* option<br/>
 	- Select on left panel *"Java Build Path"* option<br/>
 	- Select *"Libraries"* tabulator<br/>
 	- Click on *"Add JARs..."* button<br/>
 	- Select *"libs/PanoramaGL_0.1.jar"* file from your project<br/>
 	- Click on *"OK"* button<br/>
-	- Accept the changes selecting the *"OK"* button on right bottom corner in properties window<br/>
+	- Accept the changes selecting the *"OK"* button on right bottom corner in properties window
 
 ==2. How to use PanoramaGL in your app?==
 ----
