@@ -100,7 +100,7 @@ this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
     {
         "enabled": false,		//Enable inertia feature [true, false] <Optional>
         "interval": 3			//Inertia's interval in seconds <Optional>
-	},
+    },
     "accelerometer":			//Accelerometer section <Optional>
     {
         "enabled": false,		//Enable the accelerometer feature [true, false] <Optional>
