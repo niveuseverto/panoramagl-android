@@ -89,49 +89,49 @@ this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
 {{{
 {
     "urlBase": "file:///sdcard/files",	//URL base where the files are
-    									//The options are res:// for application resources and file:// for file system (this feature will be improved to support the http protocol)
-    "type": "spherical",        		//Panorama type: [spherical, spherical2, cubic, cylindrical]
-    "sensorialRotation": false, 		//Automatic rotation using sensors [true, false] <Optional>
-    "scrolling":						//Scrolling section <Optional>
-	{
-		"enabled": false				//Enable scrolling feature [true, false] <Optional>
-	},
-	"inertia":							//Inertia section <Optional>
-	{
-		"enabled": false,				//Enable inertia feature [true, false] <Optional>
-		"interval": 3					//Inertia's interval in seconds <Optional>
-	},
-	"accelerometer":					//Accelerometer section <Optional>
-	{
-		"enabled": false,				//Enable the accelerometer feature [true, false] <Optional>
-		"interval": 0.033,				//Update interval of accelerometer (this value must be calculated as 1/frequency) <Optional>
-		"sensitivity": 10.0,			//Sensitivity of the accelerometer <Optional>
-		"leftRightEnabled": true,		//Enable the direction of movement with the accelerometer (left/right) <Optional>
-		"upDownEnabled": false			//Enable the direction of movement with the accelerometer (up/down) <Optional>
-	},
-    "images":                   		//Panoramic images section
-    									//A property can be a name e.g. preview.jpg, preview or URL e.g. file:///sdcard/files/preview.jpg, res://raw/preview
-    									//if a property only have a name, the real path will be the urlBase + image name
+    					//The options are res:// for application resources and file:// for file system (this feature will be improved to support the http protocol)
+    "type": "spherical",        	//Panorama type: [spherical, spherical2, cubic, cylindrical]
+    "sensorialRotation": false, 	//Automatic rotation using sensors [true, false] <Optional>
+    "scrolling":			//Scrolling section <Optional>
     {
-        "preview": "preview.jpg",		//Preview image name or URL (this option will be used with http protocol) <Optional>
-        "image": "pano.jpg"     		//Panoramic image name or URL for spherical, spherical2 and cylindrical panoramas
-        "front": "front.jpg",			//Front image name or URL for cubic panorama (only use with cubic panorama)
-        "back": "back.jpg",     		//Back image name or URL for cubic panorama (only use with cubic panorama)
-        "left": "left.jpg",     		//Left image name or URL for cubic panorama (only use with cubic panorama)
-        "right": "right.jpg",   		//Right image name or URL for cubic panorama (only use with cubic panorama)
-        "up": "up.jpg",         		//Up image name or URL for cubic panorama (only use with cubic panorama)
-        "down": "down.jpg"      		//Down image name or URL for cubic panorama (only use with cubic panorama)
+        "enabled": false		//Enable scrolling feature [true, false] <Optional>
     },
-    "camera":                   		//Camera settings section <Optional>
+    "inertia":				//Inertia section <Optional>
     {
-        "vlookat": 0,           		//Initial vertical position [-90, 90]
-        "hlookat": 0,           		//Initial horizontal position [-180, 180]
-        "atvmin": -90,          		//Min vertical position [-90, 90]
-        "atvmax": 90,           		//Max vertical position [-90, 90]
-        "athmin": -180,         		//Min horizontal position [-180, 180]
-        "athmax": 180           		//Max horizontal position [-180, 180]
+        "enabled": false,		//Enable inertia feature [true, false] <Optional>
+        "interval": 3			//Inertia's interval in seconds <Optional>
+	},
+    "accelerometer":			//Accelerometer section <Optional>
+    {
+        "enabled": false,		//Enable the accelerometer feature [true, false] <Optional>
+        "interval": 0.033,		//Update interval of accelerometer (this value must be calculated as 1/frequency) <Optional>
+        "sensitivity": 10.0,		//Sensitivity of the accelerometer <Optional>
+        "leftRightEnabled": true,	//Enable the direction of movement with the accelerometer (left/right) <Optional>
+        "upDownEnabled": false		//Enable the direction of movement with the accelerometer (up/down) <Optional>
     },
-    "hotspots": [               		//Hotspots section (this section is an array of hotspots) <Optional>
+    "images":                   	//Panoramic images section
+    					//A property can be a name e.g. preview.jpg, preview or URL e.g. file:///sdcard/files/preview.jpg, res://raw/preview
+    					//if a property only have a name, the real path will be the urlBase + image name
+    {
+        "preview": "preview.jpg",	//Preview image name or URL (this option will be used with http protocol) <Optional>
+        "image": "pano.jpg"     	//Panoramic image name or URL for spherical, spherical2 and cylindrical panoramas
+        "front": "front.jpg",		//Front image name or URL for cubic panorama (only use with cubic panorama)
+        "back": "back.jpg",     	//Back image name or URL for cubic panorama (only use with cubic panorama)
+        "left": "left.jpg",     	//Left image name or URL for cubic panorama (only use with cubic panorama)
+        "right": "right.jpg",   	//Right image name or URL for cubic panorama (only use with cubic panorama)
+        "up": "up.jpg",         	//Up image name or URL for cubic panorama (only use with cubic panorama)
+        "down": "down.jpg"      	//Down image name or URL for cubic panorama (only use with cubic panorama)
+    },
+    "camera":                   	//Camera settings section <Optional>
+    {
+        "vlookat": 0,           	//Initial vertical position [-90, 90]
+        "hlookat": 0,           	//Initial horizontal position [-180, 180]
+        "atvmin": -90,          	//Min vertical position [-90, 90]
+        "atvmax": 90,           	//Max vertical position [-90, 90]
+        "athmin": -180,         	//Min horizontal position [-180, 180]
+        "athmax": 180           	//Max horizontal position [-180, 180]
+    },
+    "hotspots": [               	//Hotspots section (this section is an array of hotspots) <Optional>
                  {
                  "id": 1,               //Hotspot identifier (long)
                  "atv": 0,              //Vertical position [-90, 90]
@@ -146,8 +146,8 @@ this.load(new PLJSONLoader(this, "file:///sdcard/files/json_spherical.data"));
 
 ===3.3. See===
 
-** _PLJSONLoader_ class and _PLView_ load method.<br/>
-** The files _json_spherical.data_, _json_spherical2.data_, _json_cylindrical.data_ and _json_cubic.data_ in *"res/raw"* folder of _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
+_PLJSONLoader_ class and _PLView_ load method.<br/>
+The files _json_spherical.data_, _json_spherical2.data_, _json_cylindrical.data_ and _json_cubic.data_ in *"res/raw"* folder of _*[http://panoramagl-android.googlecode.com/files/HelloPanoramaGL.zip HelloPanoramaGL]*_ example.
 
 ==4. More information==
 ----
